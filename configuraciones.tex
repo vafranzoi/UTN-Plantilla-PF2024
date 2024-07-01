@@ -1,0 +1,28 @@
+%Separacion de listados
+\let\olditemize\itemize
+\def\itemize{\olditemize\itemsep=0pt}
+
+%Separacion de enumerados
+\let\oldenumerate\enumerate
+\def\enumerate{\oldenumerate\itemsep=0pt}
+
+%Cambio el nombre de las tablas
+\def\tablename{Tabla}
+\def\listtablename{\'Indice de tablas}%
+
+%Cambio el indentado
+\setlength{\parindent}{1.23cm}
+%\setlength{\parindent}{0cm}
+
+%Config de los capitulos 
+\titleformat{\chapter}{\bfseries\centering}{CAPÍTULO \thechapter. }{0pt}{\normalsize}
+\titlespacing{\chapter}{0cm}{-0.5cm}{0cm}
+
+%Config de los secciones
+\titleformat{\section}{\bfseries\normalsize}{\thesection}{1cm}{\normalsize}
+\titlespacing{\section}{0cm}{0cm}{0cm}
+
+
+%Config de los subsecciones
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{1cm}{\normalsize}
+\titlespacing{\section}{0cm}{0cm}{0cm}

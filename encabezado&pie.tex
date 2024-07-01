@@ -1,0 +1,36 @@
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\fancyhead{}
+
+\fancyhead[L]{
+	\begin{picture}(0,0)
+		\put(40,-30){\includegraphics[height=30pt]{imagenes/LogoUTN_nvgsb.eps}}
+\end{picture}\\
+\vspace{1.25cm}
+{\scriptsize \textbf{Ministerio de Capital Humano\\
+Universidad Tecnológica Nacional\\
+Facultad Regional Reconquista}\\
+\vspace{-0.4cm}}}
+
+\fancyhead[C]{}
+\fancyhead[R]{\small{Valentin Aurelio Franzoi\\ Proyecto Final\\}}
+
+\fancyfoot{}
+\fancyfoot[L,C]{}
+\fancyfoot[R]{\thepage}
+
+
+\usepackage{etoolbox} % https://tex.stackexchange.com/questions/39988/space-before-chapters-and-contents
+\makeatletter
+\patchcmd{\@makechapterhead}{50\p@}{0pt}{}{}
+\patchcmd{\@makeschapterhead}{50\p@}{0pt}{}{}
+\makeatother
+
+% Las 3 siguientes lineas no se usan, pero si se usa comando \maketitle son utiles
+\title{Diseño eléctrico, programación \\ y control de servicios \\ auxiliares para caldera de \\ central térmica}
+\author{Santiago Andrés Franzoi}
+\date{Marzo 2021}
