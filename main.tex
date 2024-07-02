@@ -29,7 +29,10 @@
 \usepackage{setspace}
 \linespread{1.25} %https://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world
 \usepackage{parskip}
-\usepackage{titlesec}
+\usepackage{titlesec} %para editar chapter y section
+\usepackage{titletoc} %para editar tabla de contenidos
+
+% Definir configuración general de la TOC:
 
 	%----------------------------------------------------------
 	%	INICIO DOCUMENTO 
@@ -37,6 +40,22 @@
 
 \input{encabezado&pie}
 \input{configuraciones}
+
+%\newcommand{\setupname}[1][\chaptername]{
+%	\titlecontents{chapter}[0pt]{\vskip0pt}{\normalfont#1~\thecontentslabel:~}{}{\hfill\thecontentspage}[]
+%	\titleformat{\chapter}{\bfseries\centering}{#1 \thechapter. }{0pt}{\normalsize}
+%}
+
+
+\newcommand{\setupname}[1][\chaptername]{
+	\titlecontents{chapter}[0pt]{\vskip0pt}{#1~\thecontentslabel:~}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
+	\titleformat{\chapter}{\bfseries\centering}{#1 \thechapter. }{0pt}{\normalsize}
+}
+%\newcom
+
+%\dottedcontents{section}{\normalsize}{0pt}{-width}
+%\titlecontents{chapter}[0pt]{\vskip0pt}{CAPITULO~\thecontentslabel:~}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
+\titlecontents{section}[0pt]{\vskip-1pt}{\thecontentslabel}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
 
 
 
@@ -47,7 +66,7 @@
 	
 	\input{titulo/hoja1.tex}
 	%----------------------------------------------------------
-	
+	\setupname[CAPÍTULO]
 	\chapter*{\centering{\vspace*{5.7cm}DEDICATORIA}}
 	\input{capitulos/dedicatoria}
 	
@@ -56,15 +75,28 @@
 	
 	\renewcommand{\contentsname}{ÍNDICE}
 	\tableofcontents
-	
 	\chapter{MEMORIA DESCRIPTIVA}
 	\input{capitulos/mem_descriptiva}
 	
 	\chapter{Siguiente Capítulo}
 	\input{capitulos/capitulo2}
 	
+	\chapter{MEMORIA DESCRIPTIVA}
+	\input{capitulos/mem_descriptiva}
+	
+	\chapter{MEMORIA DESCRIPTIVA}
+	\input{capitulos/mem_descriptiva}
+	
+	\setupname[ANEXO]
+	
+	 \appendix
+	 \chapter{aaaaAAAAAAAAAn}
+	 \input{capitulos/capitulo2}
+	 \chapter{MEMORIA DESCRIPTIVA}
+	 \input{capitulos/mem_descriptiva}
+	 \chapter{MEMORIA DESCRIPTIVA}
+	 \input{capitulos/mem_descriptiva}
 
-	 
 	%----------------------------------------------------------
 	%	BIBLIOGRAFIA
 	%----------------------------------------------------------
