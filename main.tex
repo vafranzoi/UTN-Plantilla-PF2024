@@ -31,31 +31,17 @@
 \usepackage{parskip}
 \usepackage{titlesec} %para editar chapter y section
 \usepackage{titletoc} %para editar tabla de contenidos
-
+%\usepackage{appendixnumbering} %para numerar el anexo
 % Definir configuración general de la TOC:
 
 	%----------------------------------------------------------
 	%	INICIO DOCUMENTO 
 	%----------------------------------------------------------
 
-\input{encabezado&pie}
-\input{configuraciones}
-
-%\newcommand{\setupname}[1][\chaptername]{
-%	\titlecontents{chapter}[0pt]{\vskip0pt}{\normalfont#1~\thecontentslabel:~}{}{\hfill\thecontentspage}[]
-%	\titleformat{\chapter}{\bfseries\centering}{#1 \thechapter. }{0pt}{\normalsize}
-%}
+\input{config/encabezado&pie}
+\input{config/configuraciones}
 
 
-\newcommand{\setupname}[1][\chaptername]{
-	\titlecontents{chapter}[0pt]{\vskip0pt}{#1~\thecontentslabel:~}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
-	\titleformat{\chapter}{\bfseries\centering}{#1 \thechapter. }{0pt}{\normalsize}
-}
-%\newcom
-
-%\dottedcontents{section}{\normalsize}{0pt}{-width}
-%\titlecontents{chapter}[0pt]{\vskip0pt}{CAPITULO~\thecontentslabel:~}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
-\titlecontents{section}[0pt]{\vskip-1pt}{\thecontentslabel}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
 
 
 
@@ -66,18 +52,30 @@
 	
 	\input{titulo/hoja1.tex}
 	%----------------------------------------------------------
-	\setupname[CAPÍTULO]
+
 	\chapter*{\centering{\vspace*{5.7cm}DEDICATORIA}}
 	\input{capitulos/dedicatoria}
 	
 	\chapter*{\centering{\vspace*{5.7cm}AGRADECIMIENTOS}}
 	\input{capitulos/agradecimientos}
 	
+	\chapter{\centering{RESUMEN-PALABRAS CLAVE}}
+	\input{capitulos/agradecimientos}
+	
 	\renewcommand{\contentsname}{ÍNDICE}
 	\tableofcontents
-	\chapter{MEMORIA DESCRIPTIVA}
-	\input{capitulos/mem_descriptiva}
 	
+	\chapter{\centering{LISTA DE ABREVIATURAS}}
+%	\input{capitulos/agradecimientos}
+
+	\chapter{\centering{INTRODUCCIÓN}}
+%	\input{capitulos/agradecimientos}
+	
+	\chapter{OBJETIVO GENERAL/OBJETIVOS ESPECIFÍFICOS}
+%	\input{capitulos/mem_descriptiva}
+	
+	\input{config/configuraciones2}
+	\setupname[CAPÍTULO]
 	\chapter{Siguiente Capítulo}
 	\input{capitulos/capitulo2}
 	
@@ -87,14 +85,21 @@
 	\chapter{MEMORIA DESCRIPTIVA}
 	\input{capitulos/mem_descriptiva}
 	
+	\input{config/configuraciones3}
+	\chapter{CONCLUSIONES}
+	\input{capitulos/mem_descriptiva}
+	
+	
 	\setupname[ANEXO]
 	
 	 \appendix
-	 \chapter{aaaaAAAAAAAAAn}
+	 \renewcommand{\thechapter}{\arabic{chapter}}
+	 \setcounter{section}{0}
+	 \chapter{PLANOS}
 	 \input{capitulos/capitulo2}
-	 \chapter{MEMORIA DESCRIPTIVA}
+	 \chapter{CÁLCULOS}
 	 \input{capitulos/mem_descriptiva}
-	 \chapter{MEMORIA DESCRIPTIVA}
+	 \chapter{VAYAUNOASABER}
 	 \input{capitulos/mem_descriptiva}
 
 	%----------------------------------------------------------

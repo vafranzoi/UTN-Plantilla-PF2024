@@ -14,19 +14,14 @@
 \setlength{\parindent}{1.23cm}
 %\setlength{\parindent}{0cm}
 
-%Config de los capitulos 
-\titleformat{\chapter}{\bfseries\centering}{CAPÍTULO \thechapter. }{0pt}{\normalsize}
+%Config de los capitulos sin "CAPITULO nro" 
+\titleformat{\chapter}{\bfseries\centering}{}{0pt}{\normalsize}
 \titlespacing{\chapter}{0cm}{-0.5cm}{0cm}
-
-%Config de los secciones
-\titleformat{\section}{\bfseries\normalsize}{\thesection}{1cm}{\normalsize}
-\titlespacing{\section}{0cm}{0cm}{0cm}
-
-
-%Config de los subsecciones
-\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{1cm}{\normalsize}
-\titlespacing{\section}{0cm}{0cm}{0cm}
 
 %Config de la tabla de contenidos
 \setcounter{tocdepth}{1} % que aparezcan chapter y section nadamas en TOC
+
+%Da formato a la primera parte de la tabla de contenido, de los titulos que no son capítulo
+\titlecontents{chapter}[0pt]{\vskip0pt}{}{}{\titlerule*[.5pc]{.}\thecontentspage}[]
+\titleformat{\chapter}{\bfseries\centering}{}{0pt}{\normalsize}
 
