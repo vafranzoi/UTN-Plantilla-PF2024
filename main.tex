@@ -4,6 +4,7 @@
 	%	Paquetes utilizados
 	%----------------------------------------------------------
 %\usepackage[pass,showframe,a4paper,top=30mm,left=30mm,right=20mm,bottom=20mm]{geometry}
+
 \usepackage[a4paper,top=30mm,left=30mm,right=20mm,bottom=20mm,headheight=42pt]{geometry}
 \setlength{\headheight}{55pt}
 \usepackage[T1]{fontenc}
@@ -29,6 +30,10 @@
 \usepackage{setspace}
 \linespread{1.25} %https://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world
 \usepackage{parskip}
+
+\usepackage{fancyhdr} %este y el de abajo son ocupados para hacer los encabezados y pie de pag
+\usepackage{etoolbox} % https://tex.stackexchange.com/questions/39988/space-before-chapters-and-contents
+
 \usepackage{titlesec} %para editar chapter y section
 \usepackage{titletoc} %para editar tabla de contenidos
 %\usepackage{appendixnumbering} %para numerar el anexo
@@ -38,56 +43,69 @@
 	%	INICIO DOCUMENTO 
 	%----------------------------------------------------------
 
-\input{config/encabezado&pie}
-\input{config/configuraciones}
 
+\input{config/configuraciones}
+\input{config/encabezado&pie2}
 
 
 
 
 \begin{document}
 	\begin{titlepage}
-		\input{titulo/portada.tex}
+		\input{hojas-aux/portada.tex}
 	\end{titlepage}
+	\setcounter{page}{2}
+	\input{hojas-aux/hoja1.tex}
 	
-	\input{titulo/hoja1.tex}
 	%----------------------------------------------------------
 
+%	\pagestyle{plain}
 	\chapter*{\centering{\vspace*{5.7cm}DEDICATORIA}}
-	\input{capitulos/dedicatoria}
+	\input{hojas-aux/dedicatoria}
+	
 	
 	\chapter*{\centering{\vspace*{5.7cm}AGRADECIMIENTOS}}
-	\input{capitulos/agradecimientos}
+	\input{hojas-aux/agradecimientos}
 	
 	\chapter{\centering{RESUMEN-PALABRAS CLAVE}}
-	\input{capitulos/agradecimientos}
+	\input{hojas-aux/resumen}
 	
 	\renewcommand{\contentsname}{ÍNDICE}
 	\tableofcontents
 	
 	\chapter{\centering{LISTA DE ABREVIATURAS}}
-%	\input{capitulos/agradecimientos}
+	\input{hojas-aux/abreviaturas}
 
 	\chapter{\centering{INTRODUCCIÓN}}
-%	\input{capitulos/agradecimientos}
+	\input{hojas-aux/introduccion}
 	
-	\chapter{OBJETIVO GENERAL/OBJETIVOS ESPECIFÍFICOS}
-%	\input{capitulos/mem_descriptiva}
+	\chapter{OBJETIVO GENERAL/OBJETIVOS ESPECÍFICOS}
+	\input{hojas-aux/objetivos}
 	
 	\input{config/configuraciones2}
 	\setupname[CAPÍTULO]
-	\chapter{Siguiente Capítulo}
+	\chapter{CAP1}
+	\input{capitulos/capitulo1}
+	
+	\chapter{CAP2}
 	\input{capitulos/capitulo2}
 	
-	\chapter{MEMORIA DESCRIPTIVA}
-	\input{capitulos/mem_descriptiva}
-	
-	\chapter{MEMORIA DESCRIPTIVA}
-	\input{capitulos/mem_descriptiva}
+	\chapter{CAP3}
+	\input{capitulos/capitulo3}
 	
 	\input{config/configuraciones3}
 	\chapter{CONCLUSIONES}
-	\input{capitulos/mem_descriptiva}
+	\input{hojas-aux/conclusiones}
+	
+	%----------------------------------------------------------
+	%	BIBLIOGRAFIA
+	%----------------------------------------------------------
+	
+	\bibliographystyle{apacite} % estilo de la biblio (probar estilos "ieeetr" o "apacite")
+	\renewcommand*{\bibname}{REFERENCIA BIBLIOGRÁFICA}
+	\bibliography{./bibliografia} % nombre del archivo .bib
+%	\addcontentsline{toc}{chapter}{Bibliografia}
+	\newpage
 	
 	
 	\setupname[ANEXO]
@@ -96,21 +114,13 @@
 	 \renewcommand{\thechapter}{\arabic{chapter}}
 	 \setcounter{section}{0}
 	 \chapter{PLANOS}
-	 \input{capitulos/capitulo2}
+	 \input{capitulos/anexo1}
 	 \chapter{CÁLCULOS}
-	 \input{capitulos/mem_descriptiva}
+	 \input{capitulos/anexo2}
 	 \chapter{VAYAUNOASABER}
-	 \input{capitulos/mem_descriptiva}
+	 \input{capitulos/anexo3}
 
-	%----------------------------------------------------------
-	%	BIBLIOGRAFIA
-	%----------------------------------------------------------
-	
-%	\bibliographystyle{apacite} % estilo de la biblio (probar estilos "ieeetr" o "apacite")
-%	\renewcommand*{\bibname}{Bibliografía}
-%	\bibliography{./bibliografia} % nombre del archivo .bib
-%	\addcontentsline{toc}{chapter}{Bibliografia}
-%	\newpage
+
 
 
 

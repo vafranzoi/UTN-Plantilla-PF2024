@@ -1,3 +1,6 @@
+%\pagestyle{fancy}
+
+
 
 \pagestyle{fancy}
 \fancypagestyle{plain}{}
@@ -23,13 +26,15 @@ Facultad Regional Reconquista}\\
 \fancyfoot[L,C]{}
 \fancyfoot[R]{\thepage}
 
-
-
-\makeatletter
-\patchcmd{\@makechapterhead}{50\p@}{0pt}{}{}
-\patchcmd{\@makeschapterhead}{50\p@}{0pt}{}{}
 \makeatother
 
+\fancypagestyle{toc}{%
+	\fancyhf{}%
+	\fancyhead[R,C,L]{}%
+	\renewcommand{\headrulewidth}{0pt}%
+	\renewcommand{\footrulewidth}{0pt}%
+	\fancyfoot[R]{\thepage}
+}
 % Las 3 siguientes lineas no se usan, pero si se usa comando \maketitle son utiles
 \title{Diseño eléctrico, programación \\ y control de servicios \\ auxiliares para caldera de \\ central térmica}
 \author{Santiago Andrés Franzoi}
